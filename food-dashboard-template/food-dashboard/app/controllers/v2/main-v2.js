@@ -55,11 +55,11 @@ window.editFood = (id) => {
 };
 // Update
 window.updateFood = () => {
-  let product = layThongTinForm();
+  let data = layThongTinForm();
+
   https
-    .put(`/foodlist/${selectedId}`, product)
+    .put(`/foodlist/${data.ma}`, data)
     .then((res) => {
-      console.log("🙂 ~ .then ~ res:", res);
       $("#exampleModal").modal("hide");
       fectFoodList();
     })

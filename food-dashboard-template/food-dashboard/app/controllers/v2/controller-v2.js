@@ -28,7 +28,7 @@ export let renderFoodList = (foodArr) => {
                             <td>
                             <button onclick="deleteFood(${ma})" type="button" class="btn btn-primary">Delete</button>
                             <button onclick="editFood(${ma})" type="button" class="btn btn-warning">Edit</button>
-                            
+                          
                             </td>
                             
                 </tr>`;
@@ -37,14 +37,26 @@ export let renderFoodList = (foodArr) => {
   document.getElementById("tbodyFood").innerHTML = contentHTML;
 };
 // Show data
+const monChay = "loai1";
+const chay = true;
+const monMan = "loai2";
+
+// tinh trang
+const con = true;
+const conMon = "1";
+const hetMon = "0";
 export function showData(product) {
-  document.getElementById("foodID").value = product.ma;
-  document.getElementById("tenMon").value = product.ten;
-  document.getElementById("loai").value = product.loai;
-  document.getElementById("giaMon").value = product.gia;
+  let { ma, ten, loai, gia, khuyenMai, tinhTrang, moTa, hinhAnh } = product;
+  document.getElementById("foodID").value = ma;
+  document.getElementById("tenMon").value = ten;
+  document.getElementById("loai").value = loai == chay ? monChay : monMan;
+  document.getElementById("giaMon").value = gia;
   document.getElementById("tinhTrang").value =
-    product.tinhTrang == 0 ? "hết" : "còn";
-  document.getElementById("khuyenMai").value = product.khuyenMai;
-  document.getElementById("moTa").value = product.moTa;
-  document.getElementById("hinhMon").value = product.hinhAnh;
+    tinhTrang == con ? conMon : hetMon;
+  document.getElementById("khuyenMai").value = khuyenMai;
+  document.getElementById("moTa").value = moTa;
+  document.getElementById("hinhMon").value = hinhAnh;
 }
+
+// validate
+function validateUndefire() {}
